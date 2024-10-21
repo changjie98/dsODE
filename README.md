@@ -2,6 +2,7 @@ This project provides simulation code associated with the publication
 xxxxxx
 
 # Model Description
+The dsODE model is written in Matlab and does not require any additional packages. The refactory density methods and the Fokker Planck equations used for comparison with the dsODE model in the project are written in Python, and specific operating conditions can be referenced from the original author's project.
 
 # Examples
 > main_LIF  
