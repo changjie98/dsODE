@@ -1,8 +1,8 @@
 tic
-%% 模型
-res_DIFODE = struct;
+%% model
+res_dsODE = struct;
 params = struct;
-%% 设置参数
+%% params
 params.J_ex = 7;
 params.M = 100;
 params.Mr = 66;
@@ -136,7 +136,7 @@ for i = 2:params.t_end
     I_e_var(i,I_e_var(i,:)<0) = 0;
     E_state.I_n_mean = I_e_mean(i,:);
     E_state.I_n_var = I_e_var(i,:);
-    E_output = DIFODE_module_bins(E_state,params);
+    E_output = dsODE_module_bins(E_state,params);
     % You can choose whether to add random error to the current
 %     x = random('Normal',0,sqrt(E_output.fr_n));
 %     E_output.fr_n = E_output.fr_n+x;
@@ -165,7 +165,7 @@ for i = 2:params.t_end
     I_i_var(i,I_i_var(i,:)<0) = 0;
     I_state.I_n_mean = I_i_mean(i,:);
     I_state.I_n_var = I_i_var(i,:);
-    I_output = DIFODE_module_bins(I_state,params);
+    I_output = dsODE_module_bins(I_state,params);
     % You can choose whether to add random error to the current
 %     x = random('Normal',0,sqrt(I_output.fr_n));
 %     I_output.fr_n = I_output.fr_n+x;
@@ -204,37 +204,37 @@ for i = 2:params.t_end
     ref_i(i) = I_output.ref_n;
 end
 
-res_DIFODE.n_e = n_e;
-res_DIFODE.V_e_mean = V_e_mean;
-res_DIFODE.V_e_all = V_e_all;
-res_DIFODE.ref_e = ref_e;
-res_DIFODE.H_ee_mean = H_ee_mean;
-res_DIFODE.H_ei_mean = H_ei_mean;
-res_DIFODE.I_ee_mean = I_ee_mean_list;
-res_DIFODE.I_ee_var = I_ee_var_list;
-res_DIFODE.I_ei_var = I_ei_var_list;
-res_DIFODE.I_ei_mean = I_ei_mean_list;
-res_DIFODE.H_ee_var = H_ee_var;
-res_DIFODE.H_ei_var = H_ei_var;
-res_DIFODE.fr_e = fr_e;
-res_DIFODE.I_eex_mean = I_eex_mean;
-res_DIFODE.I_e_mean = I_e_mean;
-res_DIFODE.I_e_var = I_e_var;
+res_dsODE.n_e = n_e;
+res_dsODE.V_e_mean = V_e_mean;
+res_dsODE.V_e_all = V_e_all;
+res_dsODE.ref_e = ref_e;
+res_dsODE.H_ee_mean = H_ee_mean;
+res_dsODE.H_ei_mean = H_ei_mean;
+res_dsODE.I_ee_mean = I_ee_mean_list;
+res_dsODE.I_ee_var = I_ee_var_list;
+res_dsODE.I_ei_var = I_ei_var_list;
+res_dsODE.I_ei_mean = I_ei_mean_list;
+res_dsODE.H_ee_var = H_ee_var;
+res_dsODE.H_ei_var = H_ei_var;
+res_dsODE.fr_e = fr_e;
+res_dsODE.I_eex_mean = I_eex_mean;
+res_dsODE.I_e_mean = I_e_mean;
+res_dsODE.I_e_var = I_e_var;
 
-res_DIFODE.fr_i = fr_i;
-res_DIFODE.n_i = n_i;
-res_DIFODE.V_i_mean = V_i_mean;
-res_DIFODE.V_i_all = V_i_all;
-res_DIFODE.ref_i = ref_i;
-res_DIFODE.H_ie_mean = H_ie_mean;
-res_DIFODE.H_ii_mean = H_ii_mean;
-res_DIFODE.I_ie_mean = I_ie_mean_list;
-res_DIFODE.I_ii_mean = I_ii_mean_list;
-res_DIFODE.H_ie_var = H_ie_var;
-res_DIFODE.H_ii_var = H_ii_var;
-res_DIFODE.I_iex_mean = I_iex_mean;
-res_DIFODE.I_i_mean = I_i_mean;
-res_DIFODE.I_i_var = I_i_var;
+res_dsODE.fr_i = fr_i;
+res_dsODE.n_i = n_i;
+res_dsODE.V_i_mean = V_i_mean;
+res_dsODE.V_i_all = V_i_all;
+res_dsODE.ref_i = ref_i;
+res_dsODE.H_ie_mean = H_ie_mean;
+res_dsODE.H_ii_mean = H_ii_mean;
+res_dsODE.I_ie_mean = I_ie_mean_list;
+res_dsODE.I_ii_mean = I_ii_mean_list;
+res_dsODE.H_ie_var = H_ie_var;
+res_dsODE.H_ii_var = H_ii_var;
+res_dsODE.I_iex_mean = I_iex_mean;
+res_dsODE.I_i_mean = I_i_mean;
+res_dsODE.I_i_var = I_i_var;
 
 clear n_e
 clear V_e_all
