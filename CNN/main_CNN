@@ -1,4 +1,4 @@
-from CNN import *
+from CNN_func import *
 from torchvision import transforms
 from torchvision.datasets import MNIST
 from torch.utils.data import TensorDataset, DataLoader
